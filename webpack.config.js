@@ -44,14 +44,14 @@ module.exports = {
 
     //definiendo este plugin vamos a poder acceder a los elementos de html
     plugins: [
-        new HtmlWebpackPlugin([
+        new HtmlWebpackPlugin(
             {
                 // con esta instrucción le estamos diciendo que como inyectar valores a html
                 inject:true,
                 template: './public/index.html',
                 filename: './index.html',
             }
-        ])
+        )
     ]
 
     //extensiones
