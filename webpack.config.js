@@ -6,6 +6,9 @@ const HtmlWebpackPlugin=require('html-webpack-plugin');
 // una vez estando en producción
 
 
+//esta const es para poder escribir los documentos de los estilos
+const CopyWebPackPlugin =require('copy-webpack-plugin');
+
 module.exports = {
     entry:'./src/index.js',
     output:{
@@ -51,8 +54,15 @@ module.exports = {
                 template: './public/index.html',
                 filename: './index.html',
             }
+        ),
+        new CopyWebPackPlugin ([{
+                patterns: [{from : './src/styles/main.css', to: ' '}],
+
+
+        }]
         )
     ]
+    
 
     //extensiones
 }
