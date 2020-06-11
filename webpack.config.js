@@ -4,7 +4,7 @@ const path = require('path');
 const HtmlWebpackPlugin=require('html-webpack-plugin');
 //en este nodulo es donde va a empezar y donde lo vamos a mandar
 // una vez estando en producción
-
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 //esta const es para poder escribir los documentos de los estilos
 const CopyWebPackPlugin =require('copy-webpack-plugin');
@@ -30,7 +30,7 @@ module.exports = {
                 //establecemos los valores qeu vamos a filtrar en este caso se hace un regex
                 //con ese / establecemos el punto de entrada 
                 // con este test vamos a identificar los arcfivos ese regex es una forma de establecer valores a filtra de una ruta etc
-
+            
                 test:/\.js?$/,
                 //escluimos los node modules para no incorporar eso es importante quitarlo
                 exclude: /node_modules/,
@@ -39,7 +39,17 @@ module.exports = {
                     loader: 'babel-loader',
                 }
 
+
+            },
+            {
+                test: /\.css$/,
+                use: ['style-loader','css-loader'],
+
+            },
+            {
+
             }
+
             
         ]
 
@@ -55,12 +65,13 @@ module.exports = {
                 filename: './index.html',
             }
         ),
-        new CopyWebPackPlugin ([{
-                patterns: [{from : './src/styles/main.css', to: ' '}],
+        new MiniCssExtractPlugin({
+            filename: 'main.css',
 
 
-        }]
-        )
+
+        })
+
     ]
     
 

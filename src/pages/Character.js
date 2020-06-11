@@ -4,20 +4,20 @@ import getHash from '../utils/getHash';
 
 const Character= async () => {
     const id = getHash();
-    const Character=  await getData(id);
+    const character=  await getData(id);
     const view= `
         <div class="Character-inner">
         <article class="Characters-card">
-            <img src="${Character.image}" alt="${Character.name}">
-            <h2>${Character.name}</h2>
+            <img src="${character.image}" alt="${character.name}">
+            <h2>${character.name}</h2>
         </article>
         <article class="Characters-card">
-            <h3>Episodios: <span>${Character.episode.lenght}</span></h3>
-            <h3>Status: <span>${Character.status}</span></h3>
-            <h3>Especie: <span>${Character.species}</span></h3>
-            <h3>Genero: <span>${Character.gender}</span></h3>
-            <h3>Origen: <span>${Character.origin.name}</span></h3>
-            <h3>Ultima locacion: <span>${Character.location.name}</span></h3>
+            <h3>Episodios: <span>${character.episode.lenght}</span></h3>
+            <h3>Status: <span>${character.status}</span></h3>
+            <h3>Especie: <span>${character.species}</span></h3>
+            <h3>Genero: <span>${character.gender}</span></h3>
+            <h3>Origen: <span>${character.origin.name}</span></h3>
+            <h3>Ultima locacion: <span>${character.location.name}</span></h3>
         </article>
 
         </div>

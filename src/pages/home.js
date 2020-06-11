@@ -4,7 +4,7 @@ import getData from '../utils/getData';
 
 const Home = async () =>{
 
-    const characters= await getData();
+    const characters = await getData();
     //creamos nuestro template base para idetificar y generar el llamado de la api y mostrarlo
     const view= `
     <div class="Characters">
